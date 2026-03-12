@@ -47,10 +47,7 @@ jobs:
         run: terraform -chdir=terraform init
 
       - name: Terraform Plan
-        run: terraform -chdir=terraform plan \
-          -var="db_username=${{ github.event.inputs.db_username }}" \
-          -var="db_password=${{ github.event.inputs.db_password }}" \
-          -out=plan.out
+        run: terraform -chdir=terraform plan -var="db_username=${{ github.event.inputs.db_username }}" -var="db_password=${{ github.event.inputs.db_password }}" -out=plan.out
 
       - name: save plan
         uses: actions/upload-artifact@v6
