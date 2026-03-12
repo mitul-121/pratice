@@ -61,6 +61,4 @@ jobs:
 
       - name: Terraform destroy
         if: ${{ github.event.inputs.action == 'destroy' }}
-        run: terraform -chdir=terraform destroy -auto-approve \
-          -var="db_username=${{ github.event.inputs.db_username }}" \
-          -var="db_password=${{ github.event.inputs.db_password }}"
+        run: terraform -chdir=terraform destroy -auto-approve -var="db_username=${{ github.event.inputs.db_username }}" -var="db_password=${{ github.event.inputs.db_password }}"
